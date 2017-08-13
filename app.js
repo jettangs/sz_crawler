@@ -42,7 +42,7 @@ let q = asyncs.queue((news,callback) => {
         //console.log($(".container-content").html())
         news['content'] = eval(t.news.content)
        //console.log("content=>"+$(".lxs-news-detail").html())
-        //News.create(news)
+        News.create(news)
         await instance.exit();
         callback()        
     }catch(e){console.log(e)}
@@ -67,23 +67,22 @@ q.drain = () => {
     await page.on("onResourceRequested", function(requestData) {
         console.log('Requesting', requestData.url)
     });
-// url.length
+    // url.length
     console.log(`Page: ${url.length}`)
     for(let i = 0; i < url.length; i++){
-        console.log("page=>"+url[i])
         const status = await page.open(url[i]);
         // await page.property('scrollPosition', {
         //   top: 100
         // })
-        console.log('Status: ' + status);
+        console.log('${url[i]}=>' + status);
         const content = await page.property('content');
        // console.log("content=>"+content)
         const $ = cheerio.load(content);
         let items = eval(t.news.body)
         //page.render('page'+i+'.jpg',{format: 'jpeg', quality: '60'})
-        //article.length
+        //items.length
         console.log(`News per page: ${items.length}`)
-        for(let i = 0; i < 2; i++) {
+        for(let i = 0; i < items.length; i++) {
             let news = {}
             let title = eval(`items.eq(i).${t.news.title}`)
             news['title'] = title? title : "no title"
