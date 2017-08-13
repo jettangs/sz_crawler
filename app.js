@@ -56,7 +56,7 @@ q.saturated = function() {
 
 q.drain = () => {
     console.log('all urls have been processed');
-    //fs.writeFile('news.txt', JSON.stringify(news_list), function(err){ if (err) throw err });
+    fs.writeFile('news.txt', JSON.stringify(news_list), function(err){ if (err) throw err });
     sequelize.close()
 }
 
@@ -99,7 +99,7 @@ q.drain = () => {
             let cover = eval(`article.eq(i)`+t.news.cover)
             news['cover'] = cover? t.news.coverPrefix+cover : 'no cover'
             console.log("cover ->"+news.cover)
-            
+
             news['author'] = t.news.author
             news['host'] = t.news.host
             news_list.push(news)
