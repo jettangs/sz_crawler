@@ -84,22 +84,22 @@ q.drain = () => {
         //article.length
         for(let i = 0; i < article.length; i++) {
             let news = {}
-            //console.log("art=>"+article.eq(i).find('.textcontainer.textcontainerQ').html())
             let title = eval(`article.eq(i).`+t.news.title)
             news['title'] = title? title : "no title"
-            //console.log("title ->"+news.title)
+            console.log("title ->"+news.title)
 
             let description = eval(`article.eq(i).`+t.news.description)
             news['description'] = description? description : 'no description'
-            //console.log("description ->"+news.description)
+            console.log("description ->"+news.description)
 
             let link = eval(`article.eq(i).`+t.news.link)
-            news['link'] = link? t.news.prefix+link : "no link"
-            //console.log("link ->"+news.link)
+            news['link'] = link? t.news.linkPrefix+link : "no link"
+            console.log("link ->"+news.link)
 
             let cover = eval(`article.eq(i)`+t.news.cover)
-            news['cover'] = cover? t.news.prefix+cover : 'no cover'
-            //console.log("cover ->"+news.cover)
+            news['cover'] = cover? t.news.coverPrefix+cover : 'no cover'
+            console.log("cover ->"+news.cover)
+            
             news['author'] = t.news.author
             news['host'] = t.news.host
             news_list.push(news)

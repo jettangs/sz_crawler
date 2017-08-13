@@ -1,11 +1,12 @@
 exports.news = {
-	body: `$('.content')`,
-	prefix: `https://press.covestro.com/news.nsf/id/`,
-	content: `$(".container-content").html()`,
+	body: `$('.lxs-list-content')`,
 	title: `find('.headline').find('a').html()`,
-	description: `find('.underline').html()`,
+	content: `$(".container-content").html()`,
+	description: `find('.bodytext').html()`,
 	link: `find('.headline').find('a').attr('href')`,
-	cover: `.find('img').attr('src')`,
-	author: `covestro`,
-	host: `https://press.covestro.com`
+	cover: `.find('.lxs-list-pic').find('img').attr('src')`,
+	author: `lanxess`,
+	host: `https://www.lanxess.com`,
+	linkPrefix: ``,
+	coverPrefix: `https://www.lanxess.com`
 }
