@@ -78,24 +78,25 @@ q.drain = () => {
         const content = await page.property('content');
        // console.log("content=>"+content)
         const $ = cheerio.load(content);
-        let article = eval(t.news.body)
+        let items = eval(t.news.body)
         //page.render('page'+i+'.jpg',{format: 'jpeg', quality: '60'})
         //article.length
-        for(let i = 0; i < article.length; i++) {
+        console.log("News count: ${items.length}")
+        for(let i = 0; i < 1; i++) {
             let news = {}
-            let title = eval(`article.eq(i).`+t.news.title)
+            let title = eval(`items.eq(i).`+t.news.title)
             news['title'] = title? title : "no title"
             console.log("title ->"+news.title)
 
-            let description = eval(`article.eq(i).`+t.news.description)
+            let description = eval(`items.eq(i).`+t.news.description)
             news['description'] = description? description : 'no description'
             console.log("description ->"+news.description)
 
-            let link = eval(`article.eq(i).`+t.news.link)
+            let link = eval(`items.eq(i).`+t.news.link)
             news['link'] = link? t.news.linkPrefix+link : "no link"
             console.log("link ->"+news.link)
 
-            let cover = eval(`article.eq(i)`+t.news.cover)
+            let cover = eval(`items.eq(i)`+t.news.cover)
             news['cover'] = cover? t.news.coverPrefix+cover : 'no cover'
             console.log("cover ->"+news.cover)
 
