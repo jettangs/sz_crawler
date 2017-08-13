@@ -81,10 +81,11 @@ q.drain = () => {
         let items = eval(t.news.body)
         //page.render('page'+i+'.jpg',{format: 'jpeg', quality: '60'})
         //article.length
+        console.log($('.lxs-list-content').length)
         console.log(`News count: ${items.length}`)
         for(let i = 0; i < 1; i++) {
             let news = {}
-            let title = eval(`items.eq(i).`+t.news.title)
+            let title = eval(`items.eq(i).${t.news.title}`)
             news['title'] = title? title : "no title"
             console.log("title ->"+news.title)
 
