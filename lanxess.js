@@ -1,5 +1,5 @@
 exports.news = {
-	body: `$('.lxs-list-content')`,
+	body: `$('.lxs-list-content').html()`,
 	title: `find('.headline').find('a').html()`,
 	content: `$(".container-content").html()`,
 	description: `find('.bodytext').html()`,
