@@ -41,7 +41,7 @@ let q = asyncs.queue((news,callback) => {
         const $ = cheerio.load(content)
         //console.log($(".container-content").html())
         news['content'] = eval(t.news.content)
-        console.log("content=>"+$(".lxs-news-detail").html())
+       //console.log("content=>"+$(".lxs-news-detail").html())
         //News.create(news)
         await instance.exit();
         callback()        
@@ -81,7 +81,7 @@ q.drain = () => {
         //page.render('page'+i+'.jpg',{format: 'jpeg', quality: '60'})
         //article.length
         console.log(`News count: ${items.length}`)
-        for(let i = 0; i < items.length; i++) {
+        for(let i = 0; i < 3; i++) {
             let news = {}
             let title = eval(`items.eq(i).${t.news.title}`)
             news['title'] = title? title : "no title"
