@@ -65,9 +65,10 @@ q.drain = () => {
     const page = await instance.createPage();
     await page.property('viewportSize', {width: 1920, height: 1080})
     await page.on("onResourceRequested", function(requestData) {
-        console.info('Requesting', requestData.url)
+        console.log('Requesting', requestData.url)
     });
 // url.length
+    console.log(`Page: ${url.length}`)
     for(let i = 0; i < url.length; i++){
         console.log("page=>"+url[i])
         const status = await page.open(url[i]);
@@ -81,8 +82,8 @@ q.drain = () => {
         let items = eval(t.news.body)
         //page.render('page'+i+'.jpg',{format: 'jpeg', quality: '60'})
         //article.length
-        console.log(`News count: ${items.length}`)
-        for(let i = 0; i < 3; i++) {
+        console.log(`News per page: ${items.length}`)
+        for(let i = 0; i < 2; i++) {
             let news = {}
             let title = eval(`items.eq(i).${t.news.title}`)
             news['title'] = title? title : "no title"
