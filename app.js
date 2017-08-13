@@ -41,7 +41,7 @@ let q = asyncs.queue((news,callback) => {
         const $ = cheerio.load(content)
         //console.log($(".container-content").html())
         news['content'] = eval(t.news.content)
-        console.log("content=>"=content)
+        console.log("content=>"+content)
         //News.create(news)
         await instance.exit();
         callback()        
