@@ -41,13 +41,12 @@ let q = asyncs.queue((news,callback) => {
         const $ = cheerio.load(content)
         //console.log($(".container-content").html())
         news['content'] = eval(t.news.content)
+        console.log(news.content)
         //News.create(news)
         await instance.exit();
         callback()        
     }catch(e){console.log(e)}
-
   })()
-  
 })
 
 q.saturated = function() { 
