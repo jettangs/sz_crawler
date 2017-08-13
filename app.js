@@ -69,6 +69,7 @@ q.drain = () => {
     });
 // url.length
     for(let i = 0; i < url.length; i++){
+        console.log("page=>"+url[i])
         const status = await page.open(url[i]);
         // await page.property('scrollPosition', {
         //   top: 100
